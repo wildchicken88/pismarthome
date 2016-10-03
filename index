@@ -1,0 +1,295 @@
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>WebIOPi ROLETY</title>
+        <script type="text/javascript" src="/webiopi.js"></script>
+        <script type="text/javascript">
+        webiopi().ready(function() {
+        
+         var content, button;
+        content = $("#content");
+                // Create a "Light" labeled button for GPIO 17
+                 button = webiopi().createGPIOButton(5, "");
+                 $("#button14").append(button);
+                 button = webiopi().createGPIOButton(9, "");
+                 $("#button15").append(button);
+                
+
+                 
+                 
+
+                // Append button to HTML element with ID="controls" using jQuery
+                
+          
+                        
+
+                // Refresh GPIO buttons
+                // pass true to refresh repeatedly of false to refresh once
+                webiopi().refreshGPIO(true);
+        });
+        
+        
+      
+                
+        </script>
+        <style type="text/css">
+        
+        button {
+			display: block;
+			margin: 0px 0px 0px 0px;
+			width: 100px;
+			height: 45px;
+			font-size: 0pt;
+		
+                        
+                        
+             }
+                
+                input[type="range"] {
+                        display: block;
+                        width: 160px;
+                        height: 45px;
+                }             
+
+        
+        
+                 
+        
+        
+        
+        
+        
+	        .logo {
+		        
+		     display: block;
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 10px;
+                left: 0;
+                right: 50;                
+                
+                       
+                
+                width: 800px;
+                height: 150px;
+
+		        background-image: url("/ico/logo.png");
+   
+		        
+		        
+	        }		        
+		        
+	  
+	        
+	        
+	        .menu {
+	            
+		        
+		        /* or absolute */
+		        display: block;
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 200px;
+                left: 0;
+                right: 50;                
+                
+                       
+                
+                width: 800px;
+                height: 600px;
+
+		        background-image: url("/ico/backgroundhome.png");
+		     
+		        
+	        }
+	        
+	        
+	        body 
+	        {
+		        background-image: url("/rolety/bg.png");
+		        }
+		 
+		 
+		 
+		  #home {
+	            
+		       
+display: block;
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+margin-top: auto;
+         
+top: 530px; 
+left: 100px; 
+width: 83px;
+height: 93px;
+
+
+
+		        }	
+		        
+#blind {
+	            
+		       
+display: block;
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+margin-top: auto;
+         
+top: 530px; 
+left: 200px; 
+width: 83px;
+height: 93px;
+
+
+
+		        }	
+		        
+#lights {
+	            
+		       
+display: block;
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+margin-top: auto;
+         
+top: 530px; 
+left: 290px; 
+width: 83px;
+height: 93px;
+
+
+
+		        }
+		        
+		        
+#cam {
+	            
+		       
+display: block;
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+margin-top: auto;
+         
+top: 530px; 
+left: 380px; 
+width: 83px;
+height: 93px;
+
+
+
+		        }		        		        			        
+		        
+		        
+		        #LoadPHP {
+	            
+		       
+display: block;
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+margin-top: auto;
+         
+
+
+
+
+		        }		        		        
+		        
+		        
+	        
+                                
+                #gpio5.LOW {
+	                   border: 0px;
+                        
+                        background-image: url("/ico/startstopblack.png");
+                        background-color: currentcolor;
+                        width: 135px;
+                        height: 57px
+                    
+                      
+                }
+                
+                #gpio5.HIGH {
+	               
+                        border: 0px;
+                        
+                        background-image: url("/ico/startstopblue.png");
+                        background-color: currentcolor;
+                        width: 135px;
+                        height: 57px;
+                }
+                
+                
+                #gpio9.LOW {
+	                   border: 0px;
+                        
+                        background-image: url("/ico/startstopblack.png");
+                        background-color: currentcolor;
+                        width: 135px;
+                        height: 57px
+                    
+                      
+                }
+                
+                #gpio9.HIGH {
+	               
+                        border: 0px;
+                        
+                        background-image: url("/ico/startstopblue.png");
+                        background-color: currentcolor;
+                        width: 135px;
+                        height: 57px;
+                }
+
+
+
+           
+
+                
+                
+        </style>
+
+        
+        
+</head>
+<body >
+        <div align="center">
+        <div class="logo"></div>
+        <div class="menu"  >
+        <div id="button14" style="position: absolute; top: 415px; left: 295px; width: auto; height: auto"></div>
+        <div id="button13" style="position: absolute; top: 415px; left: 60px; width: auto; height: auto"></div>
+        
+        
+        <div id="home"><a href="index.html"><img src="/ico/home.png"></a></div>
+        
+        <div id="blind"><a href="rolety.html"><img src="/ico/blind.png"></a></div>
+        
+        <div id="lights"><a href="lights.html"><img src="/ico/light.png"></a></div>
+        <div id="cam"><a href="cam.html"><img src="/ico/cam.png"></a></div>
+        
+        
+        <div style="position: absolute; top: 8px; left: 30px; width: auto; height: auto">
+            <iframe style="margin-left:auto;margin-top:auto;" src="http://213.5.137.215:1027/tempco.php/" width="168" height="129" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+</div>
+
+
+<div style="position: absolute; top: 8px; left: 210px; width: auto; height: auto">
+            <iframe style="margin-left:auto;margin-top:auto;" src="http://213.5.137.215:1027/tempzp.php/" width="168" height="129" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+</div>
+
+<div style="position: absolute; top: 8px; left: 390px; width: auto; height: auto">
+            <iframe style="margin-left:auto;margin-top:auto;" src="http://213.5.137.215:1027/tempzew.php/" width="168" height="129" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+</div>
+        
+        </div></div></body>
+
+
+</body>
+</html>
