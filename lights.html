@@ -1,0 +1,588 @@
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>WebIOPi ROLETY</title>
+        <script type="text/javascript" src="/webiopi.js"></script>
+        <script type="text/javascript">
+        var serial;
+      webiopi().ready(init);
+        
+                
+                
+                
+                 
+      
+        function init() {
+        // defines function passed to webiopi().ready()
+      
+                // define Serial object, must be configured in /etc/webiopi/config
+                serial = new Serial("serial");
+
+         var content, button;
+        content = $("#content");
+
+	    
+
+
+		
+		button = webiopi().createButton("led1", "Jeden", toggleLED1);
+		$("#jeden").append(button);
+		button = webiopi().createButton("led2", "Dwa", toggleLED2);
+		$("#dwa").append(button);
+		
+		button = webiopi().createButton("led3", "Trzy", toggleLED3);
+		$("#trzy").append(button);
+		button = webiopi().createButton("led4", "cztery", toggleLED4);
+		$("#cztery").append(button);
+		
+		button = webiopi().createButton("led5", "piec", toggleLED5);
+		$("#piec").append(button);
+		button = webiopi().createButton("led6", "szesc", toggleLED6);
+		$("#szesc").append(button);
+		
+		button = webiopi().createButton("led7", "siedem", toggleLED7);
+		$("#siedem").append(button);
+		button = webiopi().createButton("led8", "osiem", toggleLED8);
+		$("#osiem").append(button);
+		
+		button = webiopi().createButton("led9", "dziewiec", toggleLED9);
+		$("#dziewiec").append(button);
+		button = webiopi().createButton("led10", "dziesiec", toggleLED10);
+		$("#dziesiec").append(button);
+		
+		button = webiopi().createButton("led11", "Jedennascie", toggleLED11);
+		$("#jedenascie").append(button);
+		button = webiopi().createButton("led12", "Dwanascie", toggleLED12);
+		$("#dwanascie").append(button);
+		
+		
+		button = webiopi().createButton("ALL", "ALL12", toggleAll);
+		$("#all").append(button);
+			
+		 // append button to content div
+        webiopi().refreshGPIO(true);
+	
+ 
+
+        // function to use "d" command
+  
+        
+           function toggleLED1() {
+                serial.write("0");
+                serial.read(led1Callback);
+           }
+           function toggleLED2() {
+                serial.write("1");
+                serial.read(led2Callback);
+               }
+               
+               
+             function toggleLED3() {
+                serial.write("2");
+                serial.read(led3Callback);
+           }
+           function toggleLED4() {
+                serial.write("3");
+                serial.read(led4Callback);
+               }
+             function toggleLED5() {
+                serial.write("4");
+                serial.read(led5Callback);
+           }
+           function toggleLED6() {
+                serial.write("5");
+                serial.read(led6Callback);
+               } 
+               
+              function toggleLED7() {
+                serial.write("6");
+                serial.read(led7Callback);
+           }
+           function toggleLED8() {
+                serial.write("7");
+                serial.read(led8Callback);
+               }          
+           function toggleLED9() {
+                serial.write("8");
+                serial.read(led9Callback);
+               }
+           function toggleLED10() {
+                serial.write("9");
+                serial.read(led10Callback);
+               }
+            function toggleLED11() {
+                serial.write("!");
+                serial.read(led11Callback);
+               }
+            function toggleLED12() {
+                serial.write("@");
+                serial.read(led12Callback);
+               }           
+            function toggleAll() {
+                serial.write("0");
+                serial.write("1");
+                serial.write("2");
+                serial.write("3");
+                serial.write("4");
+                serial.write("5");
+                serial.write("6");
+                serial.write("7");
+                serial.write("8");
+                serial.write("9");
+                serial.write("!");
+                serial.write("@");
+                
+               
+                serial.read(ALLCallback);
+            
+           }  
+   
+        
+        // funkcja led 1
+        function led1Callback(data) {
+               value = parseInt(data);
+
+                // set appropriate color and text depending on value
+                if (value == 1) {
+                       $("#led1").css("background-image", "url(ico/zarowkaon.png)","border(none)");
+                       
+                }
+                else if (value == 0) {
+                       $("#led1").css("background-image", "url(ico/zarowkaoff.png)","border(none)");
+                 
+                }
+                }
+
+  
+          //funkcja led2        
+                   
+        function led2Callback(data) {
+                value = parseInt(data); 
+                   
+                   if (value == 1) {
+                        $("#led2").css("background-image", "url(ico/zarowkaon.png)","border(none)");
+                        
+                       
+                }
+                else if (value == 0) {
+                        $("#led2").css("background-image", "url(ico/zarowkaoff.png)","border(none)");                        
+                  
+                }
+                }
+               // funkcja led 3
+                function led3Callback(data) {
+                value = parseInt(data); 
+                   
+                   if (value == 1) {
+                        $("#led3").css("background-image", "url(ico/zarowkaon.png)","border(none)");
+                        
+                       
+                }
+                else if (value == 0) {
+                        $("#led3").css("background-image", "url(ico/zarowkaoff.png)","border(none)");                        
+                  
+                }
+                }
+                //funkcja led 4
+                
+                  function led4Callback(data) {
+                value = parseInt(data); 
+                   
+                   if (value == 1) {
+                        $("#led4").css("background-image", "url(ico/zarowkaon.png)","border(none)");
+                        
+                       
+                }
+                else if (value == 0) {
+                        $("#led4").css("background-image", "url(ico/zarowkaoff.png)","border(none)");                        
+                  
+                }
+                }
+                // funkcja led5
+                
+                  function led5Callback(data) {
+                value = parseInt(data); 
+                   
+                   if (value == 1) {
+                        $("#led5").css("background-image", "url(ico/zarowkaon.png)","border(none)");
+                        
+                       
+                }
+                else if (value == 0) {
+                        $("#led5").css("background-image", "url(ico/zarowkaoff.png)","border(none)");                        
+                  
+                }
+                }
+                
+                //funkcja led6
+                
+                  function led6Callback(data) {
+                value = parseInt(data); 
+                   
+                   if (value == 1) {
+                        $("#led6").css("background-image", "url(ico/zarowkaon.png)","border(none)");
+                        
+                       
+                }
+                else if (value == 0) {
+                        $("#led6").css("background-image", "url(ico/zarowkaoff.png)","border(none)");                        
+                  
+                }
+                }
+                
+                // funkcja led7
+                
+                  function led7Callback(data) {
+                value = parseInt(data); 
+                   
+                   if (value == 1) {
+                        $("#led7").css("background-image", "url(ico/zarowkaon.png)","border(none)");
+                        
+                       
+                }
+                else if (value == 0) {
+                        $("#led7").css("background-image", "url(ico/zarowkaoff.png)","border(none)");                        
+                  
+                }
+                }
+                
+                // funkcja led8
+                
+                  function led8Callback(data) {
+                value = parseInt(data); 
+                   
+                   if (value == 1) {
+                        $("#led8").css("background-image", "url(ico/zarowkaon.png)","border(none)");
+                        
+                       
+                }
+                else if (value == 0) {
+                        $("#led8").css("background-image", "url(ico/zarowkaoff.png)","border(none)");                        
+                  
+                }
+                }
+                
+                //funkcja led9
+                
+                  function led9Callback(data) {
+                value = parseInt(data); 
+                   
+                   if (value == 1) {
+                        $("#led9").css("background-image", "url(ico/zarowkaon.png)","border(none)");
+                        
+                       
+                }
+                else if (value == 0) {
+                        $("#led9").css("background-image", "url(ico/zarowkaoff.png)","border(none)");                        
+                  
+                }
+                }
+                
+                
+                // funkcja led10
+                
+                  function led10Callback(data) {
+                value = parseInt(data); 
+                   
+                   if (value == 1) {
+                        $("#led10").css("background-image", "url(ico/zarowkaon.png)","border(none)");
+                        
+                       
+                }
+                else if (value == 0) {
+                        $("#led10").css("background-image", "url(ico/zarowkaoff.png)","border(none)");                        
+                  
+                }
+                }
+                
+                // funkcja led 11
+                
+                  function led11Callback(data) {
+                value = parseInt(data); 
+                   
+                   if (value == 1) {
+                        $("#led11").css("background-image", "url(ico/zarowkaon.png)","border(none)");
+                        
+                       
+                }
+                else if (value == 0) {
+                        $("#led11").css("background-image", "url(ico/zarowkaoff.png)","border(none)");                        
+                  
+                }
+                }
+                
+                // funkcja led12
+                
+                  function led12Callback(data) {
+                value = parseInt(data); 
+                   
+                   if (value == 1) {
+                        $("#led12").css("background-image", "url(ico/zarowkaon.png)","border(none)");
+                        
+                       
+                }
+                else if (value == 0) {
+                        $("#led12").css("background-image", "url(ico/zarowkaoff.png)","border(none)");                        
+                  
+                }
+                }
+
+
+             function ALLCallback(data) {
+               value = parseInt(data);
+
+                // funkcja zalaczenia wszystki led
+                if (value == 1) {
+                        $("#all").css("background-color", "Red");
+                        $("#all").text("All ON");
+                       
+                }
+                else if (value == 0) {
+                        $("#all").css("background-color", "Black");
+                        $("#all").text("All OFF");
+        }
+        }
+        }
+        
+        
+        
+        
+        </script>
+        
+
+        <style type="text/css">
+       #led1 ,#led2 ,#led3 ,#led4 ,#led5, #led6 ,#led7 ,#led8 ,#led9 ,#led10 ,#led11 ,#led12 { 
+       margin: 0px 0px 0px 0px;
+                width: 50px;
+                height: 50px;
+                font-size: 0pt;
+                font-weight: bold;
+                color: white;
+                text-align: center;
+                background-image: url("/ico/zarowkaoff.png");
+                        }
+        
+                        
+        
+     
+        
+      button {
+			display: block;
+			margin: 0px 0px 0px 0px;
+			width: 100px;
+			height: 45px;
+			font-size: 0pt;
+		
+                        
+                        
+             }
+                
+                input[type="range"] {
+                        display: block;
+                        width: 160px;
+                        height: 45px;
+                }             
+
+                 
+        
+        
+        
+        
+        
+	        .logo {
+		        
+		     display: block;
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 10px;
+                left: 0;
+                right: 50;                
+                
+                       
+                
+                width: 800px;
+                height: 150px;
+
+		        background-image: url("/ico/logo.png");
+   
+		        
+		        
+	        }		        
+		        
+	  
+	        
+	        
+	        .menu {
+	            
+		        
+		        /* or absolute */
+		        display: block;
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 200px;
+                left: 0;
+                right: 50;                
+                
+                       
+                
+                width: 800px;
+                height: 600px;
+
+		        background-image: url("/ico/background.png");
+		     
+		        
+	        }
+	        .bg {
+	            
+		        
+		        /* or absolute */
+		        display: block;
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 5px;
+                left: 0;
+                right: 0;                
+                
+                       
+                
+                width: 459px;
+                height: 523px;
+
+		        background-image: url("/ico/bglight.png");
+		     
+		        
+	        }
+
+	        
+	        body 
+	        {
+		        background-image: url("/rolety/bg.png");
+		        }
+		 
+		 
+		 
+		  #home {
+	            
+		       
+display: block;
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+margin-top: auto;
+         
+top: 530px; 
+left: 100px; 
+width: 83px;
+height: 93px;
+
+
+
+		        }	
+		        
+		        
+		        
+#blind {
+	            
+		       
+display: block;
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+margin-top: auto;
+         
+top: 530px; 
+left: 200px; 
+width: 83px;
+height: 93px;
+
+
+
+		        }	
+		        
+#lights {
+	            
+		       
+display: block;
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+margin-top: auto;
+         
+top: 530px; 
+left: 290px; 
+width: 83px;
+height: 93px;
+
+
+
+		        }			    
+        
+        
+#cam {
+	            
+		       
+display: block;
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+margin-top: auto;
+         
+top: 530px; 
+left: 380px; 
+width: 83px;
+height: 93px;
+
+
+
+		        }	        
+        
+        
+        
+        
+        
+        
+        </style>
+        
+   
+        
+</head>
+<body>
+<div align="center">
+        <div class="logo">
+	        
+        </div>
+      
+        
+        
+        <div class="menu">
+        <div class="bg">
+	    <div id="jeden" style="position: absolute; top: 65px; left: 90px; width: auto; height: auto"></div>
+	    <div id="dwa" style="position: absolute; top: 65px; left: 205px; width: auto; height: auto"></div>
+        <div id="trzy" style="position: absolute; top: 65px; left: 320px; width: auto; height: auto"></div>
+        
+        <div id="cztery" style="position: absolute; top: 165px; left: 90px; width: auto; height: auto"></div>
+	    <div id="piec" style="position: absolute; top: 165px; left: 205px; width: auto; height: auto"></div>
+        <div id="szesc" style="position: absolute; top: 165px; left: 320px; width: auto; height: auto"></div>
+        
+        <div id="siedem" style="position: absolute; top: 265px; left: 90px; width: auto; height: auto"></div>
+	    <div id="osiem" style="position: absolute; top: 265px; left: 205px; width: auto; height: auto"></div>
+        <div id="dziewiec" style="position: absolute; top: 265px; left: 320px; width: auto; height: auto"></div>
+        
+        <div id="dziesiec" style="position: absolute; top: 365px; left: 90px; width: auto; height: auto"></div>
+	    <div id="jedenascie" style="position: absolute; top: 365px; left: 205px; width: auto; height: auto"></div>
+        <div id="dwanascie" style="position: absolute; top: 365px; left: 320px; width: auto; height: auto"></div>
+	    </div>    
+	        
+       
+      
+        <div id="home"><a href="index.html"><img src="/ico/home.png"></a></div>
+        <div id="blind"><a href="rolety.html"><img src="/ico/blind.png"></a></div>
+        <div id="lights"><a href="lights.html"><img src="/ico/light.png"></a></div>
+        <div id="cam"><a href="cam.html"><img src="/ico/cam.png"></a></div>
+   </div></div>
+   
+   </body>
+</html>
